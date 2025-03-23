@@ -11,3 +11,17 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lopezgglendar@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin    
+volumes:
+  postgres_data: 
+  pgadmin_data:   
