@@ -1,0 +1,13 @@
+/**
+  * Primer row de la tabla
+  */
+SELECT *
+FROM platzi.alumnos
+FETCH FIRST 1 ROWS ONLY;
+
+SELECT *
+FROM (
+	SELECT ROW_NUMBER() OVER() AS row_id, *
+	FROM platzi.alumnos
+) AS alumnos_with_row_num
+WHERE row_id = 1;
